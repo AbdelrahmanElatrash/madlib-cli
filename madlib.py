@@ -33,13 +33,13 @@ def read_template(file_path):
         raise e 
 
 
-data=read_template('file.txt')   # call the function and save data in var
+
 
 
     
 
 
-def parse_template(str=data):
+def parse_template(str):
     """
     Args:
         param1 : string with defult data that come from the file in read_template function
@@ -59,11 +59,11 @@ def parse_template(str=data):
     
     return [expected_stripped, expected_parts]
 
-expected_parts=parse_template(data)[1]
 
 
 
-def user_input(t=expected_parts):
+
+def user_input(t):
     """
     Args:
         param1 : tuble with defult data that come from the file in parse_template function
@@ -84,9 +84,7 @@ def user_input(t=expected_parts):
     
     
 
-input_tubles=user_input(t=expected_parts)
 
-expected_stripped=parse_template(data)[0]
 
 def merge(str,t): 
     """
@@ -103,4 +101,11 @@ def merge(str,t):
     result=str.format(*t)
     return result
 
-print(merge(expected_stripped,input_tubles))
+
+
+if __name__=="__main__":
+    data=read_template('file.txt')   # call the function and save data in var
+    expected_parts=parse_template(data)[1]
+    input_tubles=user_input(expected_parts)
+    expected_stripped=parse_template(data)[0]
+    print(merge(expected_stripped,input_tubles))
